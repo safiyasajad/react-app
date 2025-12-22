@@ -1,9 +1,8 @@
 function ToDo(props){
     function deleteHandler(){ //function to handle the listining of the 'delete' button being clicked
-    console.log('Clicked!'); //allows us to know that the fucntionality works (no output)
-    console.log(props.text); //will tell us which of the continers has been clicked
-
-
+    // console.log('Clicked!'); //allows us to know that the fucntionality works (no output)
+    // console.log(props.text); //will tell us which of the continers has been clicked
+        
     }
     return (
     <div className='card'>
