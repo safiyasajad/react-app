@@ -6,16 +6,19 @@ import Backdrop from "./Backdrop";
 
 function ToDo(props){
     const [modalIsOpen, setModalIsOpen] = useState(); //this is where we are setting that the pop box is open or closed, currently it is set to closed as initally its closed
+    
     function deleteHandler(){ //function to handle the listining of the 'delete' button being clicked
     // console.log('Clicked!'); //allows us to know that the fucntionality works (no output)
     // console.log(props.text); //will tell us which of the continers has been clicked
         setModalIsOpen(true); //here we are seeing that when the 'Delete' button is clicked, the popbox is set to open, therefore setModalIsOpen(true) is set to true.
         //here we will add the modal.js and backdrop.js and it is specific to this funcitonality only.
     }
+
     function closeModalHandler(){
         setModalIsOpen(false); //this is what happens when the background or cancel button is clicked on
     }
     return (
+        // functionality of the container card
     <div className='card'>
         <h2>{props.text}</h2>   {/* here we are referencing the the text from each of the different blocks in the app.js file. Putting just props.text will output just that, however having it in the {} will allow for it to pick up the reference and put only the variable assigned to it */}
         <div className='actions'>
@@ -23,9 +26,9 @@ function ToDo(props){
         </div>
         {/* if modalIsOpen is true then modal then functioanlity runs */}
         {/* if modalIsOpen is false then nothing runs */}
-        {modalIsOpen && <Modal/>}
-        {modalIsOpen && <Backdrop onClickBacground={closeModalHandler}/>}
-
+        {modalIsOpen && (<Modal onCancel={closeModalHandler} onConfirm={closeModalHandler}/>)}
+        {modalIsOpen && <Backdrop onClickBacground={closeModalHandler}/>} 
+        {/* since the Backdrop is a created fucntion we therefore can name it to anything doesnt have to be onCLick like it does on modal.js for the 'cancel' and 'click' button */}
       </div>
     );
 }
