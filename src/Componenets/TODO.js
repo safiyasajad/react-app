@@ -11,7 +11,9 @@ function ToDo(props){
     // console.log(props.text); //will tell us which of the continers has been clicked
         setModalIsOpen(true); //here we are seeing that when the 'Delete' button is clicked, the popbox is set to open, therefore setModalIsOpen(true) is set to true.
         //here we will add the modal.js and backdrop.js and it is specific to this funcitonality only.
-    
+    }
+    function closeModalHandler(){
+        setModalIsOpen(false); //this is what happens when the background or cancel button is clicked on
     }
     return (
     <div className='card'>
@@ -19,9 +21,10 @@ function ToDo(props){
         <div className='actions'>
           <button className='btn' onClick={deleteHandler}>Delete</button> {/*here we will not give a parameter to the deleteHander function as that fucntion will run the parameter as well at the beginneing even when not called  */}
         </div>
-        {/* if modalIsOpen is true then modal else NUL */}
-        {modalIsOpen ? <Modal/>: null}
-        {modalIsOpen ? <Backdrop/> : null}
+        {/* if modalIsOpen is true then modal then functioanlity runs */}
+        {/* if modalIsOpen is false then nothing runs */}
+        {modalIsOpen && <Modal/>}
+        {modalIsOpen && <Backdrop onClickBacground={closeModalHandler}/>}
 
       </div>
     );
