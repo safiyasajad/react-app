@@ -4,7 +4,7 @@ function Modal() {
         <p>Are you sure?</p>
         
         {/*the btn btn--alt has its colour in in the index.css */}
-        <button className='btn btn--alt'>Cancel</button>  
+        <button className='btn btn--alt'>Cancel</button>   
         <button className="btn">Confirm</button>
     </div>
   );
